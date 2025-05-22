@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DB_URL = 'mysql://root:wJlmkFlCpWWSuJCbiJKfjcmLKmPtCEHm@yamabiko.proxy.rlwy.net:51332/railway'
+DB_URL = f"mysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
 
 engine = create_engine(DB_URL)
 SessionLocal = sessionmaker(bind=engine)
